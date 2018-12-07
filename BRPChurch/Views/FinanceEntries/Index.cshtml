@@ -1,0 +1,95 @@
+﻿@model IEnumerable<BRPChurch.Models.FinanceEntry>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@if (User.IsInRole("Treasurer") || User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <p>
+        <a asp-action="IndexPdf">Print</a>
+    </p>
+    <p>
+        <a asp-action="SelectDate">Select Dates</a>
+    </p>
+
+    <p>
+        <a asp-action="ResetDates">Reset Dates</a>
+    </p>
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FinanceType)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FinanceType.Title)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.FinanceEntryId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.FinanceEntryId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.FinanceEntryId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<label>
+    Balance: @ViewBag.Balance
+</label>
+
+
+<!--@if (User.IsInRole("Treasurer") || User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+    <input type="date" min="1950-01-01" max="3000-01-01" name="start" value="2000-01-01" />
+    <input type="date" min="1950-01-01" max="3000-01-01" name="end" value="2000-01-02" />
+    <button name="test">Click</button>
+}
+    <div id="target"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#test").click(function () {
+            var startdate = $("#start").datepicker("getDate");
+            var enddate = $("#end").datepicker("getDate");
+            $.get('@Url.Action("FinanceEntriesPartialView")',{ start: startdate, end: enddate }, function (data) {
+                $("#target").html(data);
+            }
+        });
+    });
+</script>-->

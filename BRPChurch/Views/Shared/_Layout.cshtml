@@ -1,0 +1,208 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BrpChurch</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="~/lib/bootstrap/dist/css/layout.css" rel="stylesheet" type="text/css" media="all">
+
+
+
+</head>
+<body id="top">
+    <div class="wrapper row1">
+        <header id="header" class="hoc clear">
+            <!-- ################################################################################################## -->
+            <div id="logo" class="fl_left">
+                <h1><a asp-area="" asp-controller="Home" asp-action="Index">Brp Church</a> </h1>
+                <!--<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"> -->
+                <!--  <img src="~/LogoG.png" height="30" width="100" /> -->
+
+            </div>
+            <div id="quickinfo" class="fl_right">
+                <ul class="nospace inline">
+                    <li>
+                        <strong>Address:</strong><br>
+                        B.s. Ingemanns vej 2
+                    </li>
+                    <li>
+                        <strong>Phone Number:</strong><br>
+                        +00 (123) 456 7890
+                    </li>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li> <a asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm"></a></li>
+
+                        <li>
+                            <button type="submit" class="btn btn-warning">Log out</button>
+                        </li>
+
+
+                    }
+                </ul>
+            </div>
+            <!-- ################################################################################################ -->
+        </header>
+        <hr />
+    </div>
+
+
+    <div class="wrapper row2">
+
+        <nav id="mainav" class="hoc clear">
+
+            <ul class="clear">
+
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Media">Media</a></li>
+
+
+
+                <li class="drop">
+                    <a class="drop" href="#" id="navbarDropDownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropDownMenuLink">
+
+                        <li><a asp-area="" asp-controller="Home" asp-action="History">History</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Constitution">Constitution</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Youth">Youth Ministry</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Children">Children Ministry</a></li>
+
+                    </ul>
+
+
+                <li><a asp-area="" asp-controller="Events" asp-action="Index">Events</a></li>
+
+                <li class="drop">
+                    <a class="drop" href="#" id="navbarDropDownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Activities <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropDownMenuLink">
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li> <a asp-area="" asp-controller="ActivityTypes" asp-action="Index">Types </a> </li>
+                        }
+                        <!-- <li class="divider"></li> -->
+
+                        <li> <a asp-area="" asp-controller="Activities" asp-action="Index">Details</a> </li>
+
+
+                    </ul>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                    <li class="drop">
+                        <a class="drop" href="#" id="navbarDropDownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Members<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropDownMenuLink">
+                            <li><a asp-area="" asp-controller="Members" asp-action="Index">Members List</a></li>
+                            <li><a asp-area="" asp-controller="AspNetUserRoles" asp-action="Index">Roles</a></li>
+
+                        </ul>
+                    </li>
+                }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Treasurer") || User.IsInRole("Member"))
+                    {
+                        <li class="drop">
+                            <a class="drop" href="#" id="navbarDropDownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropDownMenuLink">
+
+                                <li> <a asp-area="" asp-controller="WorshipTypes" asp-action="Index">Song Type </a> </li>
+                                <li> <a asp-area="" asp-controller="Worships" asp-action="Index">Songs</a> </li>
+
+                                <li> <a asp-area="" asp-controller="Services" asp-action="Index">Service Roles</a> </li>
+                                <li> <a asp-area="" asp-controller="ServiceWorships" asp-action="Index">Service Liturgy</a> </li>
+
+
+                            </ul>
+                        </li>
+                    }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Treasurer") || User.IsInRole("Member"))
+                    {
+                        <li class="drop">
+                            <a class="drop" href="#" id="navbarDropDownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Finance<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropDownMenuLink">
+
+                                <li><a asp-area="" asp-controller="FinanceEntries" asp-action="Index">Finance</a></li>
+
+
+                                @if (User.IsInRole("Admin") || User.IsInRole("Treasurer"))
+                                {
+
+                                    <li><a asp-area="" asp-controller="FinanceTypes" asp-action="Index">Finance Type</a></li>
+
+                                }
+                            </ul>
+
+                        </li>
+
+                        <li><a asp-area="" asp-controller="Home" asp-action="SlideShow">SlideShow</a></li>
+
+                    }
+                    @if (!User.IsInRole("Admin") && !User.IsInRole("Treasurer") && !User.IsInRole("Member"))
+                    {
+                        <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
+                        <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
+
+                        @await Html.PartialAsync("_LoginPartial")
+                    }
+              
+                </ul>
+
+
+            </nav>
+
+        </div>
+
+        <hr />
+
+        @RenderBody()
+
+        <br />
+        <br />
+
+        <div class="wrapper row3">
+            <section class="hoc container clear">
+                <div class="sectiontitle">
+                    <h6 class="heading"><i>About Us</i></h6>
+                    <br />
+                    <br />
+                    <center>The International Space Station program is tied together by a complex set of legal, political and financial agreements between the fifteen nations involved in the project, governing ownership of the various components, rights to crewing and utilization, and responsibilities for crew rotation and station resupply. These agreements tie together the five space agencies and their respective International Space Station Programs and govern how they interact with each other on a daily basis to maintain station operations, from traffic control of spacecraft to and from the station, to utilization of space and crew time. In spring 2010, the International Space Station Program Managers from each of the five partner agencies were presented with Aviation Week's Laureate Award in the Space category,[1] and NASA's International Space Station Program was awarded the 2009 Collier Trophy </center>
+                </div>
+            </section>
+        </div>
+        <div class="wrapper overlay light">
+            <section class="hoc container clear">
+                <div class="sectiontitle">
+                    <h6 class="heading"><i>NewsFeed</i></h6>
+                    <br />
+                    <br />
+                    <article class="widget-post">
+                        <div class="post-body">
+                            <h1><a href="post.html">News..</a></h1>
+
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-bottom">
+                <i class="fa fa-copyright"></i><b>Copyright 2018. All rights reserved.</b>
+
+            </div>
+
+        </footer>
+
+        <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+        <script src="~/js/jquery.min.js"></script>
+        <script src="~/js/jquery.backtotop.js"></script>
+        <script src="~/js/jquery.mobilemenu.js"></script>
+        <script src="~/js/jquery.flexslider-min.js"></script>
+
+
+
+
+
+
+    </body>
+</html>

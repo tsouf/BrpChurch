@@ -1,0 +1,17 @@
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\bin\Debug\netcoreapp2.1\BRPChurch.Test.deps.json
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\bin\Debug\netcoreapp2.1\BRPChurch.Test.runtimeconfig.json
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\bin\Debug\netcoreapp2.1\BRPChurch.Test.runtimeconfig.dev.json
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\bin\Debug\netcoreapp2.1\BRPChurch.Test.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\obj\Debug\netcoreapp2.1\BRPChurch.Test.csprojAssemblyReference.cache
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\obj\Debug\netcoreapp2.1\BRPChurch.Test.csproj.CoreCompileInputs.cache
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\obj\Debug\netcoreapp2.1\BRPChurch.Test.AssemblyInfoInputs.cache
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\obj\Debug\netcoreapp2.1\BRPChurch.Test.AssemblyInfo.cs
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\bin\Debug\netcoreapp2.1\BRPChurch.Test.pdb
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\bin\Debug\netcoreapp2.1\BRPChurch.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\bin\Debug\netcoreapp2.1\BRPChurch.pdb
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\obj\Debug\netcoreapp2.1\BRPChurch.Test.csproj.CopyComplete
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\obj\Debug\netcoreapp2.1\BRPChurch.Test.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\BRPChurch.Test\obj\Debug\netcoreapp2.1\BRPChurch.Test.pdb

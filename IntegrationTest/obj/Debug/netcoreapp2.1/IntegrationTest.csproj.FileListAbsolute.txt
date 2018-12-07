@@ -1,0 +1,11 @@
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\IntegrationTest\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\IntegrationTest\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\IntegrationTest\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\IntegrationTest\bin\Debug\netcoreapp2.1\IntegrationTest.deps.json
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\IntegrationTest\bin\Debug\netcoreapp2.1\IntegrationTest.runtimeconfig.json
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\IntegrationTest\bin\Debug\netcoreapp2.1\IntegrationTest.runtimeconfig.dev.json
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\IntegrationTest\bin\Debug\netcoreapp2.1\IntegrationTest.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\IntegrationTest\obj\Debug\netcoreapp2.1\IntegrationTest.csprojAssemblyReference.cache
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\IntegrationTest\obj\Debug\netcoreapp2.1\IntegrationTest.csproj.CoreCompileInputs.cache
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\IntegrationTest\obj\Debug\netcoreapp2.1\IntegrationTest.AssemblyInfoInputs.cache
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\IntegrationTest\obj\Debug\netcoreapp2.1\IntegrationTest.AssemblyInfo.cs

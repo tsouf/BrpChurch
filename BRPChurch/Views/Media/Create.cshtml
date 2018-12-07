@@ -1,0 +1,20 @@
+﻿@model BRPChurch.UploadMedia.Media
+<form asp-action="Create" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="ImageTitle" class="control-label"></label>
+        <input asp-for="ImageTitle" class="form-control" />
+        <span asp-validation-for="ImageTitle" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageDescription" class="control-label"></label>
+        <input asp-for="ImageDescription" class="form-control" />
+        <span asp-validation-for="ImageDescription" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MyImage" class="control-label"></label>
+        <input asp-for="MyImage" class="form-control" />
+        <span asp-validation-for="MyImage" class="text-danger"></span>
+    </div>
+
+    <input type="submit" />
+</form>

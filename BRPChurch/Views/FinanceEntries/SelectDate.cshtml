@@ -1,0 +1,25 @@
+﻿@model BRPChurch.Models.DateRange
+@{
+    ViewData["Title"] = "Finance Filtered";
+}
+<h2>@ViewData["Title"]</h2>
+<hr />
+<form asp-action="SelectedDate">
+    <div class="form-group">
+        <div class="form-group">
+            <input asp-for="start" class="form-control" />
+            <span asp-validation-for="start" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input asp-for="end" class="form-control" />
+            <span asp-validation-for="end" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="View" class="btn btn-success" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,49 @@
+﻿<label>@ViewData["desc"]</label>
+<img src="@ViewData["fileLocation"]" />
+
+<form method="post" action="/Home/Media" enctype="multipart/form-data">
+    <input type="file" name="pic" /> <br />
+    <label>Title</label>
+    <input type="text" name="title" /><br />
+    <label>Description</label>
+    <input type="text" name="description" /><br />
+
+    <input type="submit" value="Submit" />
+</form>
+
+
+<!--
+
+@{
+    ViewData["Title"] = "Media";
+    Layout = null;
+}
+<div>
+    <input type="file" />
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        let onchange = function () {
+            let _this = $(this)[0];
+            let f = new FormData();
+            f.append('File', _this.files[0]);
+
+            let onSuccess = function (model) {
+                console.log(model);
+            };
+
+            $.ajax({
+                method: 'POST',
+                url: '/media/upload',
+                data: f,
+                processData: false,
+                contentType: false
+            }).done(onSuccess);
+
+        };
+        $(document).on('change', 'input[type=file]', onchange);
+    });
+</script>
+
+    -->

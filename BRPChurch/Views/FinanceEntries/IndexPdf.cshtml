@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BRPChurch.Models.FinanceEntry>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@if (User.IsInRole("Treasurer") || User.IsInRole("Admin"))
+{
+   
+
+@if(ViewData["exists"] == "true"){
+<p>
+    From: @ViewData["start"] to: @ViewData["end"]
+</p>
+}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FinanceType)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FinanceType.Title)
+                    </td>
+                   
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<label>
+    Balance: @ViewBag.Balance
+</label>
+

@@ -1,0 +1,17 @@
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\bin\Debug\netcoreapp2.1\XUnitTestProject1.deps.json
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\bin\Debug\netcoreapp2.1\XUnitTestProject1.runtimeconfig.json
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\bin\Debug\netcoreapp2.1\XUnitTestProject1.runtimeconfig.dev.json
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\bin\Debug\netcoreapp2.1\XUnitTestProject1.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\bin\Debug\netcoreapp2.1\XUnitTestProject1.pdb
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\obj\Debug\netcoreapp2.1\XUnitTestProject1.csprojAssemblyReference.cache
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\obj\Debug\netcoreapp2.1\XUnitTestProject1.csproj.CoreCompileInputs.cache
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\obj\Debug\netcoreapp2.1\XUnitTestProject1.AssemblyInfoInputs.cache
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\obj\Debug\netcoreapp2.1\XUnitTestProject1.AssemblyInfo.cs
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\obj\Debug\netcoreapp2.1\XUnitTestProject1.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\obj\Debug\netcoreapp2.1\XUnitTestProject1.pdb
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\bin\Debug\netcoreapp2.1\BRPChurch.dll
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\bin\Debug\netcoreapp2.1\BRPChurch.pdb
+C:\Users\suman\Desktop\LastProject(EASV)\BRPChurch\BRPChurch\XUnitTestProject1\obj\Debug\netcoreapp2.1\XUnitTestProject1.csproj.CopyComplete
