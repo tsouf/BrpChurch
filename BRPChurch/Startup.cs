@@ -42,6 +42,7 @@ namespace BRPChurch
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+            var connection = @"Server=LENOVO-PC;Database=Church;uid=sa;pwd=test";
             services.AddDbContext<BRPChurchContext>(options => options.UseSqlServer(connection));
             services.AddAuthentication()
              .Services.ConfigureApplicationCookie(options =>
