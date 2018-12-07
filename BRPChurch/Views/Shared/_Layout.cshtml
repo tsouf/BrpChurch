@@ -56,8 +56,14 @@
             <ul class="clear">
 
                 <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Media">Media</a></li>
+                <li class="drop">
+                    <a class="drop" href="#" id="navbarDropDownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Media<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropDownMenuLink">
 
+                        <li><a asp-area="" asp-controller="Home" asp-action="Media">Upload</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="SlideShow">Slideshow</a></li>
+
+                    </ul>
 
 
                 <li class="drop">
@@ -134,8 +140,6 @@
 
                         </li>
 
-                        <li><a asp-area="" asp-controller="Home" asp-action="SlideShow">SlideShow</a></li>
-
                     }
                     @if (!User.IsInRole("Admin") && !User.IsInRole("Treasurer") && !User.IsInRole("Member"))
                     {
@@ -144,7 +148,7 @@
 
                         @await Html.PartialAsync("_LoginPartial")
                     }
-              
+
                 </ul>
 
 
@@ -159,7 +163,7 @@
         <br />
         <br />
 
-        <div class="wrapper row3">
+      <!--  <div class="wrapper row3">
             <section class="hoc container clear">
                 <div class="sectiontitle">
                     <h6 class="heading"><i>About Us</i></h6>
@@ -201,7 +205,7 @@
 
 
 
-
+          -->
 
 
     </body>

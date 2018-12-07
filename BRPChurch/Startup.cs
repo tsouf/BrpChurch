@@ -11,7 +11,6 @@ using Microsoft.Extensions.DependencyInjection;
 using BRPChurch.Data;
 using BRPChurch.Models;
 using BRPChurch.Services;
-using Rotativa.AspNetCore;
 
 namespace BRPChurch
 {
@@ -43,7 +42,6 @@ namespace BRPChurch
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
-            var connection = @"Server=DESKTOP-UM13H33;Database=Church;uid=sa;pwd=1234";
             services.AddDbContext<BRPChurchContext>(options => options.UseSqlServer(connection));
             services.AddAuthentication()
              .Services.ConfigureApplicationCookie(options =>
@@ -79,7 +77,6 @@ namespace BRPChurch
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            RotativaConfiguration.Setup(env);
         }
     }
 }
