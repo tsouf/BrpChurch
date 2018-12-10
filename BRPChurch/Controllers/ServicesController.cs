@@ -40,12 +40,14 @@ namespace BRPChurch.Controllers
                 return NotFound();
             }
 
-            return View(service);
+            HttpContext.Session.SetInt32("serviceid", service.ServiceId);
+            return RedirectToAction("Details", "ServiceWorships");
         }
 
         // GET: Services/Create
         public IActionResult Create()
         {
+            ViewData["UserId"] = new SelectList(_context.Members, "FullName", "FullName");
             return View();
         }
 
@@ -78,44 +80,11 @@ namespace BRPChurch.Controllers
             {
                 return NotFound();
             }
-            return View(service);
+            HttpContext.Session.SetInt32("serviceid", service.ServiceId);
+            return RedirectToAction("Index","ServiceWorships");
         }
 
-        // POST: Services/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ServiceId,Leader,Speaker,Date")] Service service)
-        {
-            if (id != service.ServiceId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(service);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ServiceExists(service.ServiceId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(service);
-        }
-
+        
         // GET: Services/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -139,6 +108,14 @@ namespace BRPChurch.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var worships = _context.ServiceWorship.Where(o => o.ServiceId == id);
+            foreach(var item in worships)
+            {
+
+                _context.ServiceWorship.Remove(item);
+                
+            }
+            await _context.SaveChangesAsync();
             var service = await _context.Service.SingleOrDefaultAsync(m => m.ServiceId == id);
             _context.Service.Remove(service);
             await _context.SaveChangesAsync();

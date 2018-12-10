@@ -1,4 +1,4 @@
-﻿@model BRPChurch.Models.ServiceWorship
+﻿@model IEnumerable<BRPChurch.Models.ServiceWorship>
 
 @{
     ViewData["Title"] = "Details";
@@ -6,25 +6,30 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>ServiceWorship</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Service)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Service.Leader)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Worship)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Worship.Name)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ServiceWorshipId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Service.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Worship)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Service.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Worship.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

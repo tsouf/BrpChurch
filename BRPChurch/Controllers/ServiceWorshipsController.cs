@@ -22,35 +22,37 @@ namespace BRPChurch.Controllers
         // GET: ServiceWorships
         public async Task<IActionResult> Index()
         {
+            if(HttpContext.Session.GetInt32("serviceid") != 0) {
+                var bRPChurchContext = _context.ServiceWorship.Where(s => s.ServiceId == HttpContext.Session.GetInt32("serviceid")).Include(s => s.Service).Include(s => s.Worship);
+                return View(await bRPChurchContext.ToListAsync());
+            }
+            else { 
             var bRPChurchContext = _context.ServiceWorship.Include(s => s.Service).Include(s => s.Worship);
             return View(await bRPChurchContext.ToListAsync());
+            }
+
         }
 
         // GET: ServiceWorships/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details()
         {
-            if (id == null)
+            if (HttpContext.Session.GetInt32("serviceid") != 0)
             {
-                return NotFound();
-            }
+                var bRPChurchContext = _context.ServiceWorship.Where(s => s.ServiceId == HttpContext.Session.GetInt32("serviceid")).Include(s => s.Service).Include(s => s.Worship);
 
-            var serviceWorship = await _context.ServiceWorship
-                .Include(s => s.Service)
-                .Include(s => s.Worship)
-                .SingleOrDefaultAsync(m => m.ServiceWorshipId == id);
-            if (serviceWorship == null)
+                return View(await bRPChurchContext.ToListAsync());
+            }
+            else
             {
-                return NotFound();
+                var bRPChurchContext = _context.ServiceWorship.Include(s => s.Service).Include(s => s.Worship);
+                return View(await bRPChurchContext.ToListAsync());
             }
-
-            return View(serviceWorship);
         }
 
         // GET: ServiceWorships/Create
         public IActionResult Create()
         {
             
-            ViewData["ServiceId"] = new SelectList(_context.Service, "ServiceId", "Date");
             ViewData["WorshipId"] = new SelectList(_context.Worship, "WorshipId", "Name");
           
             return View();
@@ -61,8 +63,9 @@ namespace BRPChurch.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ServiceWorshipId,WorshipId,ServiceId")] ServiceWorship serviceWorship)
+        public async Task<IActionResult> Create([Bind("ServiceWorshipId,WorshipId")] ServiceWorship serviceWorship)
         {
+            serviceWorship.ServiceId = (int)HttpContext.Session.GetInt32("serviceid");
             if (ModelState.IsValid)
             {
                 _context.Add(serviceWorship);
