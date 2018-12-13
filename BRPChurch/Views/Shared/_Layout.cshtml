@@ -20,7 +20,7 @@
         <header id="header" class="hoc clear">
             <!-- ################################################################################################## -->
             <div id="logo" class="fl_left">
-                <h1><a asp-area="" asp-controller="Home" asp-action="Index">Brp Church</a> </h1>
+                <h1><a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/LogoG.png" height="30" width="100" /></a> </h1>
                 <!--<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"> -->
                 <!--  <img src="~/LogoG.png" height="30" width="100" /> -->
 
@@ -36,7 +36,7 @@
                         +00 (123) 456 7890
                     </li>
                 </ul>
-                
+
 
             </div>
             <!-- ################################################################################################ -->
@@ -136,20 +136,23 @@
                         </li>
 
 
-                        <li><a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Profile</a></li>
-                
-                        <li><a asp-area="" asp-controller="Account" asp-action="Logout">Log out</a></li>
+
                     }
                     @if (!User.IsInRole("Admin") && !User.IsInRole("Treasurer") && !User.IsInRole("Member"))
                     {
                         <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
-                        <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
 
 
                     }
 
                 </ul>
+                <ul>
 
+                    <li><a asp-area="" asp-controller="Account" asp-action="Logout">Log out</a></li>
+                </ul>
+
+
+                @await Html.PartialAsync("_LoginPartial")
 
             </nav>
 
