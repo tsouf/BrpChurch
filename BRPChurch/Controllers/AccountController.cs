@@ -69,9 +69,11 @@ namespace BRPChurch.Controllers
 
                 if (result.Succeeded)
                 {
+                    var UserName = _context.Members.Where(x => x.Email == model.Email).ToString();
                     _logger.LogInformation("User logged in.");
                     HttpContext.Session.SetString("start", "");
                     HttpContext.Session.SetString("end", "");
+                    HttpContext.Session.SetString("currentuser", UserName);
                     return RedirectToLocal(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -232,12 +234,12 @@ namespace BRPChurch.Controllers
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 await _userManager.AddToRoleAsync(user, "Member");
-                if(result.Succeeded) {
-                var fullUser = await _userManager.FindByEmailAsync(model.Email);
-                var userId = fullUser.Id;
+                if (result.Succeeded) {
+                    var fullUser = await _userManager.FindByEmailAsync(model.Email);
+                    var userId = fullUser.Id;
                     var member = new Members { FullName = model.FullName, Gender = model.Gender,
-                    Street = model.Street, City = model.City, PostNo = model.PostNo,
-                    PhoneNo = model.PhoneNo, Email=model.Email, UserId= userId};
+                        Street = model.Street, City = model.City, PostNo = model.PostNo,
+                        PhoneNo = model.PhoneNo, Email = model.Email, UserId = userId, Birthdate = model.Birthdate, Private=model.Private };
                 _context.Add(member);
                 await _context.SaveChangesAsync();
                  
@@ -248,7 +250,7 @@ namespace BRPChurch.Controllers
                     await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
 
                     //await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation("User created a new account with password.");
+                   _logger.LogInformation("User created a new account with password.");
                     return RedirectToLocal(returnUrl);
                 }
                 AddErrors(result);

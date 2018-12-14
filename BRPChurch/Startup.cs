@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using BRPChurch.Data;
 using BRPChurch.Models;
 using BRPChurch.Services;
+
 
 namespace BRPChurch
 {
@@ -23,7 +21,7 @@ namespace BRPChurch
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this meethod to add serviceEs to the container.
+        // This method gets called by the runtime. Use this meethod to add serviceEes to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -37,6 +35,8 @@ namespace BRPChurch
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+                
+
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
@@ -48,7 +48,7 @@ namespace BRPChurch
              .Services.ConfigureApplicationCookie(options =>
              {
                  options.SlidingExpiration = true;
-                 options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+                 options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
              });
         }
 
@@ -59,6 +59,7 @@ namespace BRPChurch
             app.UseSession();
             if (true)//(env.IsDevelopment())
             {
+                
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
@@ -67,7 +68,8 @@ namespace BRPChurch
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+           
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseAuthentication();
@@ -78,6 +80,7 @@ namespace BRPChurch
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            
         }
     }
 }

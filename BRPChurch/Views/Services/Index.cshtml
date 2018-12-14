@@ -37,15 +37,18 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Date)
                     </td>
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.ServiceId">Edit</a>
+                    <td>
+                        @if (item.Leader == ViewBag.currentuser || User.IsInRole("Admin"))
+                        {
+                        <a asp-action="Edit" asp-route-id="@item.ServiceId">Edit</a>
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
                             <a asp-action="Details" asp-route-id="@item.ServiceId">Details</a>
                             <a asp-action="Delete" asp-route-id="@item.ServiceId"> Delete </a>
-
+                        }
                         </td>
-                    }
+                    
 
                 </tr>
             }

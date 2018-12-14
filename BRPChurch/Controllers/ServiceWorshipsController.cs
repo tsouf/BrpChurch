@@ -22,13 +22,15 @@ namespace BRPChurch.Controllers
         // GET: ServiceWorships
         public async Task<IActionResult> Index()
         {
-            if(HttpContext.Session.GetInt32("serviceid") != 0) {
+            if (HttpContext.Session.GetInt32("serviceid") != 0)
+            {
                 var bRPChurchContext = _context.ServiceWorship.Where(s => s.ServiceId == HttpContext.Session.GetInt32("serviceid")).Include(s => s.Service).Include(s => s.Worship);
                 return View(await bRPChurchContext.ToListAsync());
             }
-            else { 
-            var bRPChurchContext = _context.ServiceWorship.Include(s => s.Service).Include(s => s.Worship);
-            return View(await bRPChurchContext.ToListAsync());
+            else
+            {
+                var bRPChurchContext = _context.ServiceWorship.Include(s => s.Service).Include(s => s.Worship);
+                return View(await bRPChurchContext.ToListAsync());
             }
 
         }
@@ -52,9 +54,9 @@ namespace BRPChurch.Controllers
         // GET: ServiceWorships/Create
         public IActionResult Create()
         {
-            
+
             ViewData["WorshipId"] = new SelectList(_context.Worship, "WorshipId", "Name");
-          
+
             return View();
         }
 
@@ -70,7 +72,7 @@ namespace BRPChurch.Controllers
             {
                 _context.Add(serviceWorship);
                 await _context.SaveChangesAsync();
-                
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ServiceId"] = new SelectList(_context.Service, "ServiceId", "Leader", serviceWorship.ServiceId);

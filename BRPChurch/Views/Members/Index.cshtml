@@ -1,76 +1,118 @@
 ﻿@model IEnumerable<BRPChurch.Models.Members>
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using Microsoft.AspNetCore.Identity
+
 
 @{
     ViewData["Title"] = "Index";
 }
-<body style='background: #dbd9d3'>
+<body style='background: #000000'>
 
     <h2>Membership</h2>
-   
-        <p>
-            <a asp-action="Create">Create New</a>
-        </p>
-        <table class="table">
-            <thead>
-                <tr>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                @if (User.IsInRole("Admin"))
+                {
                     <th>
-                        @Html.DisplayNameFor(model => model.FullName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Gender)
-                    </th>
+                        @Html.DisplayNameFor(model => model.Birthdate)
+                    </th>}
+                <th>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+                @if (User.IsInRole("Admin"))
+                {
                     <th>
                         @Html.DisplayNameFor(model => model.Street)
                     </th>
+
                     <th>
                         @Html.DisplayNameFor(model => model.City)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.PostNo)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Email)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PhoneNo)
-                    </th>
-                    
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FullName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Gender)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Street)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.City)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PostNo)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Email)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PhoneNo)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.MemberId">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.MemberId">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.MemberId">Delete</a>
-                        </td>
-                    </tr>
                 }
-                
-            </tbody>
-        </table>
-    </body>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNo)
+                </th>
+                @if (User.IsInRole("Admin"))
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.Private)
+                    </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>}
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                @if (!item.Private || User.IsInRole("Admin"))
+                {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Birthdate)
+                    </td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Street)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PostNo)
+                    </td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNo)
+                </td>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Private)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Active)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.MemberId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.MemberId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.MemberId">Delete</a>
+                    </td>
+                }
+            </tr>}
+                }
+
+                </tbody>
+            </table>
+        </body>

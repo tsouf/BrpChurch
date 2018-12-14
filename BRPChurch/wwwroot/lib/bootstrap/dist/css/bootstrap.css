@@ -8208,5 +8208,9 @@ button.close {
         display: none !important;
     }
 }
+.Image {
+    width: 100%;
+    height: auto;
+}
 
 /*# sourceMappingURL=bootstrap.css.map */

@@ -11,9 +11,10 @@ using System;
 namespace BRPChurch.Migrations
 {
     [DbContext(typeof(BRPChurchContext))]
-    partial class BRPChurchContextModelSnapshot : ModelSnapshot
+    [Migration("20181213092627_MemberUpdate")]
+    partial class MemberUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

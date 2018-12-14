@@ -97,7 +97,7 @@ namespace BRPChurch.Controllers
             List<string> uploads = new List<string>();
             List<string> picTypes = new List<string> { "*.jpg", "*.png", "*.jpeg", "*.gif" };
             foreach (var type in picTypes)
-            {
+            { 
                 string[] typeUploads = Directory.GetFiles(_env.WebRootPath + "\\Uploads\\", type).Select(Path.GetFileName).ToArray();
                 foreach (var pic in typeUploads)
                 {

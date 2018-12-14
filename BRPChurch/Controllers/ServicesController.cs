@@ -22,6 +22,7 @@ namespace BRPChurch.Controllers
         // GET: Services
         public async Task<IActionResult> Index()
         {
+            ViewData["currentuser"] = HttpContext.Session.GetString("currentuser");
             return View(await _context.Service.ToListAsync());
         }
 
@@ -81,10 +82,10 @@ namespace BRPChurch.Controllers
                 return NotFound();
             }
             HttpContext.Session.SetInt32("serviceid", service.ServiceId);
-            return RedirectToAction("Index","ServiceWorships");
+            return RedirectToAction("Index", "ServiceWorships");
         }
 
-        
+
         // GET: Services/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -109,11 +110,11 @@ namespace BRPChurch.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var worships = _context.ServiceWorship.Where(o => o.ServiceId == id);
-            foreach(var item in worships)
+            foreach (var item in worships)
             {
 
                 _context.ServiceWorship.Remove(item);
-                
+
             }
             await _context.SaveChangesAsync();
             var service = await _context.Service.SingleOrDefaultAsync(m => m.ServiceId == id);

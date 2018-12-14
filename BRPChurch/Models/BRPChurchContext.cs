@@ -30,7 +30,9 @@ namespace BRPChurch.Models
 
     public BRPChurchContext(DbContextOptions<BRPChurchContext> options)
                : base(options)
-        { }
+        {
+        
+        }
 
         public BRPChurchContext()
         {
@@ -325,6 +327,7 @@ namespace BRPChurch.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
+            
         }
 
     }

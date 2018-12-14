@@ -34,5 +34,9 @@ namespace BRPChurch.Models.AccountViewModels
         public int PostNo { get; set; }
         [DisplayName("Phone Number")]
         public int PhoneNo { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Birthdate { get; set; }
+        [DisplayName("Hidden Account")]
+        public bool Private { get; set; }
     }
 }

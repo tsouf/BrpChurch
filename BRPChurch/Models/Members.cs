@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace BRPChurch.Models
 {
@@ -18,6 +19,10 @@ namespace BRPChurch.Models
         [DisplayName("Phone Number")]
         public int PhoneNo { get; set; }
         public string UserId { get; set; }
+        public bool Active { get; set; }
+        public bool Private { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Birthdate { get; set; }
 
         public AspNetUsers User { get; set; }
 
