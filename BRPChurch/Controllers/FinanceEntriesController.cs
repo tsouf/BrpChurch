@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BRPChurch.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
-using Rotativa.AspNetCore;
+
 
 namespace BRPChurch.Controllers
 {

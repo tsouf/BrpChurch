@@ -5,10 +5,12 @@
 }
 <body style='background: #d8d8d6'>
     <h2>Service Liturgy</h2>
-
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+    @if (User.IsInRole("Admin"))
+    {
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    }
     <table class="table">
         <thead>
             <tr>
@@ -40,18 +42,18 @@
                     <td>
                         @if (item.Leader == ViewBag.currentuser || User.IsInRole("Admin"))
                         {
-                        <a asp-action="Edit" asp-route-id="@item.ServiceId">Edit</a>
+                            <a asp-action="Edit" asp-route-id="@item.ServiceId">Edit</a>
                         }
                         @if (User.IsInRole("Admin"))
                         {
                             <a asp-action="Details" asp-route-id="@item.ServiceId">Details</a>
                             <a asp-action="Delete" asp-route-id="@item.ServiceId"> Delete </a>
                         }
-                        </td>
-                    
+                    </td>
+
 
                 </tr>
             }
         </tbody>
     </table>
-    </body>
+</body>

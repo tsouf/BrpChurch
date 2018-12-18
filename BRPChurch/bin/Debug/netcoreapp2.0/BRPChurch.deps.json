@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "04906ee24847aa03b6abcae34e2594517347bb08"
+    "signature": "101a34b7b5de66dc1da11e3866764a1ea8764e6b"
   },
   "compilationOptions": {
     "defines": [
@@ -28,8 +28,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "2.0.3",
           "Microsoft.NETCore.App": "2.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.4",
-          "Veldrid.ImageSharp": "4.4.0",
-          "Rotativa.AspNetCore": "1.0.6"
+          "Veldrid.ImageSharp": "4.4.0"
         },
         "runtime": {
           "BRPChurch.dll": {}
@@ -3045,20 +3044,6 @@
         },
         "compile": {
           "lib/netstandard1.0/Remotion.Linq.dll": {}
-        }
-      },
-      "Rotativa.AspNetCore/1.0.6": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Mvc": "2.0.4"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Rotativa.AspNetCore.dll": {
-            "assemblyVersion": "1.0.6.0",
-            "fileVersion": "1.0.6.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Rotativa.AspNetCore.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -6264,13 +6249,6 @@
       "sha512": "sha512-IJn0BqkvwEDpP+2qjvci7n4/a9f7DhKESLWb2/uG4xQh3rTkGTBUz69bI4IivCoKkTFAqjXxYDZw2K/npohjsw==",
       "path": "remotion.linq/2.1.1",
       "hashPath": "remotion.linq.2.1.1.nupkg.sha512"
-    },
-    "Rotativa.AspNetCore/1.0.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-yi3cnwpoZVgbed6mBYO6LArqClI62fWWPqMicFHWX6kWWhGacPw9e0GCf21tv/MPHfo90HJR4d7K9XTYD8W/rw==",
-      "path": "rotativa.aspnetcore/1.0.6",
-      "hashPath": "rotativa.aspnetcore.1.0.6.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
